@@ -1,0 +1,87 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 400px;
+
+  padding: 15px;
+  border: 1px solid rgb(226, 225, 225);
+}
+/* card image container */
+.card-image {
+  min-width: 100px;
+  max-width: 150px;
+  margin-bottom: 10px;
+  flex: 1;
+}
+.card-image img {
+  width: 100%;
+}
+/* card information */
+.card-info {
+  display: flex;
+  flex-direction: column;
+}
+/* card name */
+.card-name {
+  font-size: clamp(1rem, 1.2rem, 2rem);
+  flex: 1;
+  margin-bottom: 5px;
+}
+/* rating container */
+.rating-container {
+  flex: 1;
+  margin-bottom: 5px;
+}
+.rating-container img {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+/* price */
+.price-container {
+  flex: 1;
+}
+.price-container .price {
+  font-weight: 800;
+  font-size: clamp(10px, 1.3rem, 2rem);
+  margin-bottom: 5px;
+}
+/* quantity container */
+.quantity-container {
+  flex: 1;
+  margin-bottom: 10px;
+}
+.quantity-container input {
+  padding: 3px;
+  outline: none;
+  font-size: 1rem;
+}
+/* add to cart */
+
+.add-to-cart {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  transition: all 0.3s;
+}
+.add-to-cart:hover {
+  cursor: pointer;
+  background-color: #218838;
+  box-shadow: 1px 3px 5px rgb(112, 112, 112);
+}
