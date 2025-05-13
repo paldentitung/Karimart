@@ -4,6 +4,7 @@ export const products = [
     image: "../images-folder/products/athletic-cotton-socks-6-pairs.jpg",
     name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
     rating: { stars: 4.5, count: 87 },
+    category: "Clothing",
     priceCents: 1499, // $14.99
   },
   {
@@ -11,6 +12,7 @@ export const products = [
     image: "../images-folder/products/intermediate-composite-basketball.jpg",
     name: "Intermediate Size Basketball",
     rating: { stars: 4, count: 127 },
+    category: "Sports",
     priceCents: 2499, // $24.99
   },
   {
@@ -19,6 +21,7 @@ export const products = [
       "../images-folder/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
     name: "Adults Plain Cotton T-Shirt - 2 Pack",
     rating: { stars: 4.5, count: 56 },
+    category: "Clothing",
     priceCents: 1799, // $17.99
   },
   {
@@ -26,6 +29,7 @@ export const products = [
     image: "../images-folder/products/black-2-slot-toaster.jpg",
     name: "2 Slot Toaster - Black",
     rating: { stars: 5, count: 2197 },
+    category: "Kitchen",
     priceCents: 3499, // $34.99
   },
   {
@@ -33,6 +37,7 @@ export const products = [
     image: "../images-folder/products/6-piece-white-dinner-plate-set.jpg",
     name: "6 Piece White Dinner Plate Set",
     rating: { stars: 4, count: 37 },
+    category: "Kitchen",
     priceCents: 2999, // $29.99
   },
   {
@@ -40,6 +45,7 @@ export const products = [
     image: "../images-folder/products/6-piece-non-stick-baking-set.webp",
     name: "6-Piece Nonstick, Carbon Steel Oven Bakeware Baking Set",
     rating: { stars: 4.5, count: 175 },
+    category: "Kitchen",
     priceCents: 3999, // $39.99
   },
   {
@@ -48,6 +54,7 @@ export const products = [
       "../images-folder/products/plain-hooded-fleece-sweatshirt-yellow.jpg",
     name: "Plain Hooded Fleece Sweatshirt",
     rating: { stars: 4.5, count: 317 },
+    category: "Clothing",
     priceCents: 3499, // $34.99
   },
   {
@@ -55,6 +62,7 @@ export const products = [
     image: "../images-folder/products/luxury-tower-set-6-piece.jpg",
     name: "Luxury Towel Set - Graphite Gray",
     rating: { stars: 4.5, count: 144 },
+    category: "Home",
     priceCents: 4499, // $44.99
   },
   {
@@ -62,6 +70,7 @@ export const products = [
     image: "../images-folder/products/liquid-laundry-detergent-plain.jpg",
     name: "Liquid Laundry Detergent, 110 Loads, 82.5 Fl Oz",
     rating: { stars: 4.5, count: 305 },
+    category: "Household",
     priceCents: 1999, // $19.99
   },
   {
@@ -69,6 +78,7 @@ export const products = [
     image: "../images-folder/products/knit-athletic-sneakers-gray.jpg",
     name: "Waterproof Knit Athletic Sneakers - Gray",
     rating: { stars: 4, count: 89 },
+    category: "Footwear",
     priceCents: 6999, // $69.99
   },
   {
@@ -77,6 +87,7 @@ export const products = [
       "../images-folder/products/women-chiffon-beachwear-coverup-black.jpg",
     name: "Women's Chiffon Beachwear Cover Up - Black",
     rating: { stars: 4.5, count: 235 },
+    category: "Clothing",
     priceCents: 2999, // $29.99
   },
   {
@@ -84,6 +95,7 @@ export const products = [
     image: "../images-folder/products/round-sunglasses-black.jpg",
     name: "Round Sunglasses",
     rating: { stars: 4.5, count: 30 },
+    category: "Accessories",
     priceCents: 1599, // $15.99
   },
   {
@@ -91,6 +103,7 @@ export const products = [
     image: "../images-folder/products/women-beach-sandals.jpg",
     name: "Women's Two Strap Buckle Sandals - Tan",
     rating: { stars: 4.5, count: 562 },
+    category: "Footwear",
     priceCents: 3499, // $34.99
   },
   {
@@ -98,6 +111,7 @@ export const products = [
     image: "../images-folder/products/blackout-curtain-set-beige.webp",
     name: "Blackout Curtains Set 4-Pack - Beige",
     rating: { stars: 4.5, count: 232 },
+    category: "Home",
     priceCents: 5999, // $59.99
   },
   {
@@ -105,6 +119,7 @@ export const products = [
     image: "../images-folder/products/men-slim-fit-summer-shorts-gray.jpg",
     name: "Men's Slim-Fit Summer Shorts",
     rating: { stars: 4, count: 160 },
+    category: "Clothing",
     priceCents: 2499, // $24.99
   },
   {
@@ -113,6 +128,7 @@ export const products = [
       "../images-folder/products/electric-glass-and-steel-hot-water-kettle.webp",
     name: "Electric Glass and Steel Hot Tea Water Kettle - 1.7-Liter",
     rating: { stars: 5, count: 846 },
+    category: "Kitchen",
     priceCents: 3999, // $39.99
   },
   {
@@ -120,6 +136,7 @@ export const products = [
     image: "../images-folder/products/facial-tissue-2-ply-18-boxes.jpg",
     name: "Ultra Soft Tissue 2-Ply - 18 Box",
     rating: { stars: 4, count: 99 },
+    category: "Household",
     priceCents: 1299, // $12.99
   },
   {
@@ -127,6 +144,7 @@ export const products = [
     image: "../images-folder/products/straw-sunhat.webp",
     name: "Straw Lifeguard Sun Hat",
     rating: { stars: 4, count: 215 },
+    category: "Accessories",
     priceCents: 1799, // $17.99
   },
   {
@@ -134,20 +152,23 @@ export const products = [
     image: "../images-folder/products/sky-flower-stud-earrings.webp",
     name: "Sterling Silver Sky Flower Stud Earrings",
     rating: { stars: 4.5, count: 52 },
+    category: "Jewelry",
     priceCents: 2299, // $22.99
   },
   {
     id: "b0f17cc5-8b40-4ca5-9142-b61fe3d98c85",
     image: "../images-folder/products/women-stretch-popover-hoodie-black.jpg",
     name: "Women's Stretch Popover Hoodie",
-    priceCents: 3999, // $39.99
     rating: { stars: 4.5, count: 2465 },
+    category: "Clothing",
+    priceCents: 3999, // $39.99
   },
   {
     id: "a93a101d-79ef-4cf3-a6cf-6dbe532a1b4a",
     image: "../images-folder/products/bathroom-rug.jpg",
     name: "Bathroom Bath Rug Mat 20 x 31 Inch - Grey",
     rating: { stars: 4.5, count: 119 },
+    category: "Home",
     priceCents: 1499, // $14.99
   },
   {
@@ -155,27 +176,31 @@ export const products = [
     image: "../images-folder/products/women-knit-ballet-flat-black.jpg",
     name: "Women's Knit Ballet Flat",
     rating: { stars: 4, count: 326 },
+    category: "Footwear",
     priceCents: 2799, // $27.99
   },
   {
     id: "8b5a2ee1-6055-422a-a666-b34ba28b76d4",
     image: "../images-folder/products/men-golf-polo-t-shirt-blue.jpg",
     name: "Men's Regular-Fit Quick-Dry Golf Polo Shirt",
-    priceCents: 2999, // $29.99
     rating: { stars: 4.5, count: 2556 },
+    category: "Clothing",
+    priceCents: 2999, // $29.99
   },
   {
     id: "b86ddc8b-3501-4b17-9889-a3bad6fb585f",
     image: "../images-folder/products/trash-can-with-foot-pedal-50-liter.jpg",
     name: "Trash Can with Foot Pedal - Brushed Stainless Steel",
-    priceCents: 4999, // $49.99
     rating: { stars: 4.5, count: 2286 },
+    category: "Home",
+    priceCents: 4999, // $49.99
   },
   {
     id: "19c6a64a-5463-4d45-9af8-e41140a4100c",
     image: "../images-folder/products/duvet-cover-set-blue-twin.jpg",
     name: "Duvet Cover Set with Zipper Closure",
     rating: { stars: 4, count: 456 },
+    category: "Home",
     priceCents: 4499, // $44.99
   },
   {
@@ -183,20 +208,23 @@ export const products = [
     image: "../images-folder/products/women-chunky-beanie-gray.webp",
     name: "Women's Chunky Cable Beanie - Gray",
     rating: { stars: 5, count: 83 },
+    category: "Clothing",
     priceCents: 1999, // $19.99
   },
   {
     id: "ee1f7c56-f977-40a4-9642-12ba5072e2b0",
     image: "../images-folder/products/men-chino-pants-beige.jpg",
     name: "Men's Classic-fit Pleated Chino Pants",
-    priceCents: 3999, // $39.99
     rating: { stars: 4.5, count: 9017 },
+    category: "Clothing",
+    priceCents: 3999, // $39.99
   },
   {
     id: "1c079479-8586-494f-ab53-219325432536",
     image: "../images-folder/products/men-athletic-shoes-green.jpg",
     name: "Men's Athletic Sneaker",
     rating: { stars: 4, count: 229 },
+    category: "Footwear",
     priceCents: 7999, // $79.99
   },
   {
@@ -204,6 +232,7 @@ export const products = [
     image: "../images-folder/products/men-navigator-sunglasses-brown.jpg",
     name: "Men's Navigator Sunglasses Pilot",
     rating: { stars: 3.5, count: 42 },
+    category: "Accessories",
     priceCents: 2999, // $29.99
   },
   {
@@ -211,6 +240,7 @@ export const products = [
     image: "../images-folder/products/non-stick-cooking-set-15-pieces.webp",
     name: "Non-Stick Cookware Set, Pots, Pans and Utensils - 15 Pieces",
     rating: { stars: 4.5, count: 511 },
+    category: "Kitchen",
     priceCents: 8999, // $89.99
   },
   {
@@ -218,6 +248,7 @@ export const products = [
     image: "../images-folder/products/vanity-mirror-silver.jpg",
     name: "Vanity Mirror with Heavy Base - Chrome",
     rating: { stars: 4.5, count: 130 },
+    category: "Home",
     priceCents: 2999, // $29.99
   },
   {
@@ -226,6 +257,7 @@ export const products = [
       "../images-folder/products/women-french-terry-fleece-jogger-camo.jpg",
     name: "Women's Fleece Jogger Sweatpant",
     rating: { stars: 4.5, count: 248 },
+    category: "Clothing",
     priceCents: 3499, // $34.99
   },
   {
@@ -234,6 +266,7 @@ export const products = [
       "../images-folder/products/double-elongated-twist-french-wire-earrings.webp",
     name: "Double Oval Twist French Wire Earrings - Gold",
     rating: { stars: 4.5, count: 117 },
+    category: "Jewelry",
     priceCents: 1499, // $14.99
   },
   {
@@ -242,20 +275,23 @@ export const products = [
       "../images-folder/products/round-airtight-food-storage-containers.jpg",
     name: "Round Airtight Food Storage Containers - 5 Piece",
     rating: { stars: 4, count: 126 },
+    category: "Kitchen",
     priceCents: 1999, // $19.99
   },
   {
     id: "0d7f9afa-2efe-4fd9-b0fd-ba5663e0a524",
     image: "../images-folder/products/coffeemaker-with-glass-carafe-black.jpg",
     name: "Coffeemaker with Glass Carafe and Reusable Filter - 25 Oz, Black",
-    priceCents: 3499, // $34.99
     rating: { stars: 4.5, count: 1211 },
+    category: "Kitchen",
+    priceCents: 3499, // $34.99
   },
   {
     id: "02e3a47e-dd68-467e-9f71-8bf6f723fdae",
     image: "../images-folder/products/blackout-curtains-black.jpg",
     name: "Blackout Curtains Set 42 x 84-Inch - Black, 2 Panels",
     rating: { stars: 4.5, count: 363 },
+    category: "Home",
     priceCents: 4999, // $49.99
   },
   {
@@ -263,6 +299,7 @@ export const products = [
     image: "../images-folder/products/cotton-bath-towels-teal.webp",
     name: "100% Cotton Bath Towels - 2 Pack, Light Teal",
     rating: { stars: 4.5, count: 93 },
+    category: "Home",
     priceCents: 2499, // $24.99
   },
   {
@@ -270,6 +307,7 @@ export const products = [
     image: "../images-folder/products/knit-athletic-sneakers-pink.webp",
     name: "Waterproof Knit Athletic Sneakers - Pink",
     rating: { stars: 4, count: 89 },
+    category: "Footwear",
     priceCents: 6999, // $69.99
   },
   {
@@ -277,6 +315,7 @@ export const products = [
     image: "../images-folder/products/countertop-blender-64-oz.jpg",
     name: "Countertop Blender - 64oz, 1400 Watts",
     rating: { stars: 4, count: 3 },
+    category: "Kitchen",
     priceCents: 8999, // $89.99
   },
   {
@@ -284,20 +323,176 @@ export const products = [
     image: "../images-folder/products/floral-mixing-bowl-set.jpg",
     name: "10-Piece Mixing Bowl Set with Lids - Floral",
     rating: { stars: 5, count: 679 },
+    category: "Kitchen",
     priceCents: 2999, // $29.99
   },
   {
     id: "aaa65ef3-8d6f-4eb3-bc9b-a6ea49047d8f",
     image: "../images-folder/products/kitchen-paper-towels-30-pack.jpg",
     name: "2-Ply Kitchen Paper Towels - 30 Pack",
-    priceCents: 999, // $9.99
     rating: { stars: 4.5, count: 1045 },
+    category: "Household",
+    priceCents: 999, // $9.99
   },
   {
     id: "bc2847e9-5323-403f-b7cf-57fde044a955",
     image: "../images-folder/products/men-cozy-fleece-zip-up-hoodie-red.jpg",
     name: "Men's Full-Zip Hooded Fleece Sweatshirt",
-    priceCents: 2400,
     rating: { stars: 4.5, count: 3200 },
+    category: "Clothing",
+    priceCents: 2400,
+  },
+
+  {
+    id: "d9e0f1a2-3b4c-5d6e-7f8a-9b0c1d2e3f4a",
+    image: "../images-folder/products/ergonomic-office-chair.jpg",
+    name: "Ergonomic Office Chair - Mesh Back",
+    rating: { stars: 4, count: 342 },
+    category: "Furniture",
+    priceCents: 19999, // $199.99
+  },
+  {
+    id: "e1f2a3b4-5c6d-7e8f-9a0b-1c2d3e4f5a6b",
+    image: "../images-folder/products/stainless-steel-water-bottle.jpg",
+    name: "Stainless Steel Water Bottle - 32oz",
+    rating: { stars: 4.5, count: 876 },
+    category: "Outdoor",
+    priceCents: 2499, // $24.99
+  },
+  {
+    id: "f2a3b4c5-6d7e-8f9a-0b1c-2d3e4f5a6b7c",
+    image: "../images-folder/products/yoga-mat-non-slip.jpg",
+    name: "Eco-Friendly Yoga Mat - Non-Slip",
+    rating: { stars: 4.5, count: 532 },
+    category: "Fitness",
+    priceCents: 3499, // $34.99
+  },
+  {
+    id: "a3b4c5d6-7e8f-9a0b-1c2d-3e4f5a6b7c8d",
+    image: "../images-folder/products/wooden-cutting-board-set.jpg",
+    name: "Bamboo Cutting Board Set - 3 Pieces",
+    rating: { stars: 4, count: 287 },
+    category: "Kitchen",
+    priceCents: 2999, // $29.99
+  },
+  {
+    id: "b4c5d6e7-8f9a-0b1c-2d3e-4f5a6b7c8d9e",
+    image: "../images-folder/products/desk-organizer-set.jpg",
+    name: "Desktop Organizer Set - Wooden",
+    rating: { stars: 4.5, count: 156 },
+    category: "Office",
+    priceCents: 2299, // $22.99
+  },
+  {
+    id: "c5d6e7f8-9a0b-1c2d-3e4f-5a6b7c8d9e0f",
+    image: "../images-folder/products/ceramic-coffee-mug-set.jpg",
+    name: "Ceramic Coffee Mug Set - 4 Pieces",
+    rating: { stars: 5, count: 1024 },
+    category: "Kitchen",
+    priceCents: 1999, // $19.99
+  },
+  {
+    id: "d6e7f8a9-0b1c-2d3e-4f5a-6b7c8d9e0f1a",
+    image: "../images-folder/products/wireless-charging-stand.jpg",
+    name: "Fast Wireless Charging Stand - Qi Certified",
+    rating: { stars: 4, count: 432 },
+    category: "Electronics",
+    priceCents: 2999, // $29.99
+  },
+  {
+    id: "e7f8a9b0-1c2d-3e4f-5a6b-7c8d9e0f1a2b",
+    image: "../images-folder/products/air-fryer-xl.jpg",
+    name: "Digital Air Fryer - 5.8 Quart",
+    rating: { stars: 4.5, count: 1876 },
+    category: "Kitchen",
+    priceCents: 9999, // $99.99
+  },
+  {
+    id: "f8a9b0c1-2d3e-4f5a-6b7c-8d9e0f1a2b3c",
+    image: "../images-folder/products/resistance-band-set.jpg",
+    name: "Fitness Resistance Band Set - 5 Pieces",
+    rating: { stars: 4, count: 321 },
+    category: "Fitness",
+    priceCents: 2499, // $24.99
+  },
+  {
+    id: "a9b0c1d2-3e4f-5a6b-7c8d-9e0f1a2b3c4d",
+    image: "../images-folder/products/leather-laptop-bag.jpg",
+    name: "Genuine Leather Laptop Bag - 15.6 inch",
+    rating: { stars: 4.5, count: 543 },
+    category: "Accessories",
+    priceCents: 8999, // $89.99
+  },
+  {
+    id: "b0c1d2e3-4f5a-6b7c-8d9e-0f1a2b3c4d5e",
+    image: "../images-folder/products/smart-watch-fitness-tracker.jpg",
+    name: "Smart Watch with Fitness Tracker",
+    rating: { stars: 4, count: 765 },
+    category: "Electronics",
+    priceCents: 12999, // $129.99
+  },
+  {
+    id: "c1d2e3f4-5a6b-7c8d-9e0f-1a2b3c4d5e6f",
+    image: "../images-folder/products/essential-oil-diffuser.jpg",
+    name: "Ultrasonic Essential Oil Diffuser",
+    rating: { stars: 4.5, count: 421 },
+    category: "Home",
+    priceCents: 3499, // $34.99
+  },
+  {
+    id: "d2e3f4a5-6b7c-8d9e-0f1a-2b3c4d5e6f7a",
+    image: "../images-folder/products/weighted-blanket.jpg",
+    name: "Premium Weighted Blanket - 15 lbs",
+    rating: { stars: 5, count: 932 },
+    category: "Home",
+    priceCents: 7999, // $79.99
+  },
+  {
+    id: "e3f4a5b6-7c8d-9e0f-1a2b-3c4d5e6f7a8b",
+    image: "../images-folder/products/portable-blender.jpg",
+    name: "USB Rechargeable Portable Blender",
+    rating: { stars: 4, count: 287 },
+    category: "Kitchen",
+    priceCents: 3999, // $39.99
+  },
+  {
+    id: "f4a5b6c7-8d9e-0f1a-2b3c-4d5e6f7a8b9c",
+    image: "../images-folder/products/memory-foam-pillow.jpg",
+    name: "Cooling Gel Memory Foam Pillow",
+    rating: { stars: 4.5, count: 654 },
+    category: "Home",
+    priceCents: 4999, // $49.99
+  },
+  {
+    id: "a5b6c7d8-9e0f-1a2b-3c4d-5e6f7a8b9c0d",
+    image: "../images-folder/products/vegetable-spiralizer.jpg",
+    name: "5-Blade Vegetable Spiralizer",
+    rating: { stars: 4, count: 178 },
+    category: "Kitchen",
+    priceCents: 1999, // $19.99
+  },
+  {
+    id: "b6c7d8e9-0f1a-2b3c-4d5e-6f7a8b9c0d1e",
+    image: "../images-folder/products/foldable-dumbbell-set.jpg",
+    name: "Adjustable Foldable Dumbbell Set",
+    rating: { stars: 4.5, count: 321 },
+    category: "Fitness",
+    priceCents: 12999, // $129.99
+  },
+  {
+    id: "c7d8e9f0-1a2b-3c4d-5e6f-7a8b9c0d1e2f",
+    image: "../images-folder/products/insulated-lunch-bag.jpg",
+    name: "Insulated Lunch Bag with Containers",
+    rating: { stars: 4, count: 87 },
+    category: "Outdoor",
+    priceCents: 2499, // $24.99
+  },
+  {
+    id: "d8e9f0a1-2b3c-4d5e-6f7a-8b9c0d1e2f3a",
+    image: "../images-folder/products/cordless-vacuum-cleaner.jpg",
+    name: "Lightweight Cordless Vacuum Cleaner",
+    rating: { stars: 4.5, count: 543 },
+    category: "Home",
+    priceCents: 14999, // $149.99
   },
 ];

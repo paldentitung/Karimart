@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.about-hero-section {
+  background: url("../../images-folder/aboutus.png") no-repeat center
+    center/cover;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  padding: 4rem 0;
+
+  filter: brightness(75%);
+}
+
+.about-content h2 {
+  color: #4e54c8;
+  margin-top: 2rem;
+}
+
+.about-content p {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.team-member {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 220px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.team-member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}

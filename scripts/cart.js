@@ -33,12 +33,3 @@ function saveToStorage() {
   // Re-fetch cart after saving to localStorage to ensure consistency
   cart = JSON.parse(localStorage.getItem("cart") || "[]");
 }
-
-// Optional: Re-initialize cart when page reloads
-function initializeCart() {
-  // Re-fetch the cart if it's already in localStorage
-  cart = JSON.parse(localStorage.getItem("cart") || "[]");
-}
-
-// Initial call to set cart state
-initializeCart();

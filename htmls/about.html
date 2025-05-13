@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../styles/header.css" />
-    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="../styles/pages/aboutus.css" />
 
+    <link rel="stylesheet" href="../styles/footer.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
@@ -38,7 +39,7 @@
         </ul>
       </nav>
       <div class="input-container">
-        <input type="search" placeholder="search" />
+        <input type="search" placeholder="search" class="js-search-input" />
       </div>
       <!-- cart -->
       <a href="checkout.html">
@@ -46,7 +47,7 @@
           <span>cart</span>
           <div class="cart-icon">
             <img
-              src="images-folder/shopping_cart_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"
+              src="../images-folder/shopping_cart_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"
               alt=""
             />
           </div>
@@ -54,5 +55,88 @@
         </div>
       </a>
     </header>
+
+    <section class="about-hero-section">
+      <div class="container">
+        <h1>About Us</h1>
+        <p>We’re passionate developers building awesome web experiences.</p>
+      </div>
+    </section>
+
+    <section class="about-content container">
+      <h2>Our Mission</h2>
+      <p>
+        Our mission is to simplify productivity through beautifully designed and
+        functional to-do applications that help users stay focused and
+        organized.
+      </p>
+
+      <h2>Our Story</h2>
+      <p>
+        Started as a college project, our to-do list app is now used by hundreds
+        of students and professionals to manage their daily tasks with ease.
+      </p>
+
+      <h2>Meet the Team</h2>
+      <div class="team">
+        <div class="team-member">
+          <img src="images/team1.jpg" alt="Team member" />
+          <h3>Palden D.</h3>
+          <p>Frontend Developer</p>
+        </div>
+        <div class="team-member">
+          <img src="images/team2.jpg" alt="Team member" />
+          <h3>John Doe</h3>
+          <p>Backend Developer</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- karimart -->
+        <div class="karimart">
+          <h2>karimart</h2>
+          <p>Best products at your doorstep.</p>
+        </div>
+        <!-- ouick links -->
+        <div class="Quick-Links links">
+          <ul>
+            <li><a href="">home</a></li>
+            <li><a href="">shop</a></li>
+            <li><a href="">about us</a></li>
+            <li><a href="">contact us </a></li>
+            <li><a href="">Help center</a></li>
+          </ul>
+        </div>
+        <!-- customer support -->
+        <div class="customer-support links">
+          <ul>
+            <li><a href="">return and exchanges</a></li>
+            <li><a href="">shipping information</a></li>
+            <li><a href="">track order</a></li>
+            <li><a href="">Terms & Conditions</a></li>
+            <li><a href="">privacy policy</a></li>
+          </ul>
+        </div>
+
+        <!-- social media -->
+        <div class="social-media">
+          <img src="" alt="instra" />
+          <img src="" alt="face" />
+          <img src="" alt="what" />
+          <img src="" alt="twitter" />
+        </div>
+        <!-- feebback input -->
+        <div class="feedback-container">
+          <input type="text" placeholder="feedback" />
+          <button>sent</button>
+        </div>
+      </div>
+
+      <div class="copyright">© 2025 Karimart. All rights reserved.</div>
+    </footer>
+    <script src="../scripts/utils/header.js" type="module"></script>
   </body>
 </html>

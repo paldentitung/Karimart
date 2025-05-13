@@ -1,6 +1,13 @@
 import { products } from "./product-data.js";
 import { deleteProduct } from "./cart.js";
 
+// working with day js libary
+
+let todayDate = dayjs();
+
+let FreeShippingdate = todayDate.add(7, "day");
+let threeDayshipping = todayDate.add(3, "day");
+
 // Function to render checkout items
 function renderCheckoutCart() {
   const cart = JSON.parse(localStorage.getItem("cart") || []);
@@ -13,7 +20,9 @@ function renderCheckoutCart() {
       checkoutCard += `
         <section class="card">
           <div class="delivery-date">
-            <span>Delivery Date : Wednesday, May 14 </span>
+            <span>Delivery Date :<span class="js-delivery-date"> ${todayDate.format(
+              "MMM D YYYY"
+            )}</span> </span>
           </div>
           <div class="product-container">
             <div class="product">
@@ -40,20 +49,31 @@ function renderCheckoutCart() {
               <!-- shipping options here -->
            <div class="delivery-option">
                <div>
-              <input type="radio" name="${product.id}" value="free" >
-              <span class="delivery-option-date">Thursday, May 15</span><br>
+              <input type="radio" name="${
+                product.id
+              }" class="js-shipping-radio" value="free" >
+              <span class="delivery-option-date">${FreeShippingdate.format(
+                "dddd, MMM D YYYY"
+              )}</span><br>
               FREE Shipping
             </div>
 
             <div>
-              <input type="radio" name="${product.id}" value="standard">
-              <span class="delivery-option-date">Friday, May 9</span><br>
+              <input type="radio" name="${product.id}" 
+             class="js-shipping-radio" value="standard">
+              <span class="delivery-option-date">${threeDayshipping.format(
+                "dddd,MMM D YYYY"
+              )}</span><br>
               $4.99 - Shipping
             </div>
 
             <div>
-              <input type="radio" name="${product.id}" value="express">
-              <span class="delivery-option-date">Wednesday, May 7</span><br>
+              <input type="radio" name="${
+                product.id
+              }" class="js-shipping-radio" value="express">
+              <span class="delivery-option-date">${todayDate
+                .add(1, "day")
+                .format("dddd,MMM D YYYY")}</span><br>
               $9.99 - Shipping
             </div>
             </div>
@@ -79,6 +99,29 @@ function renderCheckoutCart() {
       const productId = button.dataset.productId;
       deleteProduct(productId);
       renderCheckoutCart(); // re-render the cart
+    });
+  });
+  // shipping radio
+  document.querySelectorAll(".js-shipping-radio").forEach((radio) => {
+    radio.addEventListener("change", () => {
+      const parent = radio.closest(".delivery-option");
+      const deliveryDisplay = parent
+        .closest(".card")
+        .querySelector(".js-delivery-date");
+
+      if (radio.value === "express") {
+        deliveryDisplay.innerHTML = `${dayjs()
+          .add(1, "day")
+          .format("dddd, MMM D YYYY")}`;
+      } else if (radio.value === "standard") {
+        deliveryDisplay.innerHTML = `${dayjs()
+          .add(3, "day")
+          .format("dddd, MMM D YYYY")}`;
+      } else if (radio.value === "free") {
+        deliveryDisplay.innerHTML = `${dayjs()
+          .add(7, "day")
+          .format("dddd, MMM D YYYY")}`;
+      }
     });
   });
 }

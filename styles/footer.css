@@ -1,0 +1,74 @@
+footer {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  place-content: center;
+  gap: 20px;
+}
+.links {
+  display: flex;
+  flex-direction: column;
+}
+.links ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+.links ul li {
+  list-style: none;
+}
+.links ul li a {
+  text-decoration: none;
+  color: white;
+}
+.feedback-container {
+  display: flex;
+  height: 40px;
+}
+.feedback-container input {
+  padding: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s;
+}
+.feedback-container button {
+  background-color: rgb(110, 0, 0);
+  color: white;
+  padding: 0 8px;
+  border: none;
+}
+.feedback-container input:hover,
+input:focus {
+  box-shadow: 1px 3px 5px goldenrod;
+}
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+@media screen and (max-width: 490px) {
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers each column */
+  }
+
+  .footer-container > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* left-align content inside each column */
+    padding: 10px;
+  }
+
+  .links ul {
+    align-items: flex-start; /* ensures ul content is also left-aligned */
+  }
+}
