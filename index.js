@@ -66,6 +66,12 @@ document.querySelectorAll(".js-add-to-cart-btn").forEach((AddButton) => {
     const productQuantity = parseInt(productQuantityInput.value);
     console.log(productQuantity);
     AddToCart(ProductId, productQuantity);
+
+    // order tracker
+    let orderTracker = document.querySelector(".order-tracker");
+    let orderCount = 1;
+    orderTracker.innerHTML = ++orderCount;
+    console.log(orderTracker);
   });
 });
 
