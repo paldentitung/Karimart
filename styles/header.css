@@ -141,14 +141,18 @@ nav a:hover {
     border: none;
   }
   /* nav hidden */
-  header nav,
-  .input-container,
   .cart {
     display: none;
   }
+  header nav {
+    display: none;
+  }
+  .input-container {
+    display: none;
+  }
+
   nav.active,
-  .input-container.active,
-  .cart.active {
+  .input-container.active {
     display: block;
   }
   header {

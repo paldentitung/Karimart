@@ -2,8 +2,7 @@ import { products } from "./scripts/product-data.js";
 import { AddToCart } from "./scripts/cart.js";
 let productHtml = "";
 products.forEach((product) => {
-  productHtml += `
-    <div class="card">
+  productHtml += `    <div class="card">
         <div class="card-image">
           <img
             src=${product.image}
@@ -85,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let inputContainer = document.querySelector(".input-container");
     let cart = document.querySelector(".cart");
     let header = document.querySelector(".js-header");
-
+    console.log(cart);
     header.classList.toggle("active");
     nav.classList.toggle("active");
     inputContainer.classList.toggle("active");
