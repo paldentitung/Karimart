@@ -1,5 +1,5 @@
 export let cart = JSON.parse(localStorage.getItem("cart") || "[]");
-
+import { quantityhandling } from "./utils/QuantityHandleing.js";
 // Add product to cart
 export function AddToCart(productId, quantity = 1) {
   const matchingProduct = cart.find((item) => item.productId === productId);
@@ -14,6 +14,9 @@ export function AddToCart(productId, quantity = 1) {
   }
 
   saveToStorage();
+  // Call your handler here with current quantity of that product
+  const updatedProduct = cart.find((item) => item.productId === productId);
+  quantityhandling(updatedProduct.quantity);
   console.log("Cart:", cart);
 }
 
