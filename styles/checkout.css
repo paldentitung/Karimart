@@ -135,6 +135,27 @@ h1 {
   cursor: pointer;
   box-shadow: 1px 3px 7px rgb(207, 207, 207);
 }
+
+.view-product-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 10px;
+}
+
+.view-product-btn-container button {
+  padding: 10px 20px;
+  background: #28a745;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  transition: all 0.3s;
+}
+.view-product-btn-container button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
 @media screen and (max-width: 490px) {
   .product {
     flex-direction: column;

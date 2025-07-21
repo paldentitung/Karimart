@@ -80,6 +80,7 @@ nav a:hover {
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  min-height: 400px;
 }
 .card {
   display: flex;

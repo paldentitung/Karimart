@@ -4,11 +4,11 @@ import { quantityhandling } from "./scripts/utils/QuantityHandleing.js";
 
 const cardContainer = document.querySelector(".card-container");
 const orderTracker = document.querySelector(".order-tracker");
+const searchInput = document.querySelector(".js-search-input");
 
-// Render product cards
-let productHtml = "";
-products.forEach((product) => {
-  productHtml += `
+// Utility: Renders a full product card
+function createProductCard(product) {
+  return `
     <div class="card">
       <div class="card-image">
         <img src="${product.image}" alt="${product.name}" />
@@ -25,51 +25,67 @@ products.forEach((product) => {
           <span class="price">$${(product.priceCents / 100).toFixed(2)}</span>
         </div>
         <div class="quantity-container">
-          <input type="number" min="1" max="10" value="1" class="js-quantity" data-product-id="${
-            product.id
-          }" />
+          <input type="number" min="1" max="10" value="1" class="js-quantity" />
         </div>
         <div class="add-to-cart-container">
           <button class="add-to-cart js-add-to-cart-btn" data-product-id="${
             product.id
-          }">Add to cart</button>
+          }">
+            Add to cart
+          </button>
         </div>
       </div>
     </div>
   `;
-});
-cardContainer.innerHTML = productHtml;
+}
 
-// Load order count from localStorage on page load
-let orderCount = parseInt(localStorage.getItem("orderCount")) || 0;
-orderTracker.innerHTML = orderCount;
+// Render and attach listeners
+function renderProducts(productList) {
+  cardContainer.innerHTML = productList.map(createProductCard).join("");
+  attachAddToCartListeners();
+}
 
-// Add event listeners for add-to-cart buttons
-document.querySelectorAll(".js-add-to-cart-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const productId = btn.dataset.productId;
-    const quantityInput = btn.closest(".card").querySelector(".js-quantity");
-    const quantity = parseInt(quantityInput.value);
+// Add event listeners to Add-to-Cart buttons
+function attachAddToCartListeners() {
+  document.querySelectorAll(".js-add-to-cart-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const productId = btn.dataset.productId;
+      const quantityInput = btn.closest(".card").querySelector(".js-quantity");
+      const quantity = parseInt(quantityInput.value);
 
-    if (isNaN(quantity) || quantity < 1) {
-      alert("Please enter a valid quantity (1 or more)");
-      return;
-    }
+      if (isNaN(quantity) || quantity < 1) {
+        alert("Please enter a valid quantity (1 or more)");
+        return;
+      }
 
-    AddToCart(productId, quantity);
-    quantityhandling(quantity);
-
-    // Recalculate total quantity from cart
-    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-    orderCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-
-    // Save updated order count and update UI
-    localStorage.setItem("orderCount", orderCount);
-    orderTracker.innerHTML = orderCount;
+      AddToCart(productId, quantity);
+      quantityhandling(quantity);
+      updateOrderCountUI();
+    });
   });
+}
+
+// Update the order count UI
+function updateOrderCountUI() {
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  const orderCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  if (orderTracker) orderTracker.innerHTML = orderCount;
+}
+
+// Initial product rendering
+renderProducts(products);
+updateOrderCountUI();
+
+// Search functionality
+searchInput.addEventListener("input", () => {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+  const filtered = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm)
+  );
+  renderProducts(filtered);
 });
 
-// Menu toggle code (your existing)
+// Menu toggle
 document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.querySelector(".menubtn");
   const jsIcon = menuBtn.querySelector(".js-icon");

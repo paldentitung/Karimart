@@ -2,23 +2,27 @@ import { products } from "./product-data.js";
 import { deleteProduct } from "./cart.js";
 import { quantityhandling } from "./utils/QuantityHandleing.js";
 
-// working with day js library
 let todayDate = dayjs();
 let FreeShippingdate = todayDate.add(7, "day");
 let threeDayshipping = todayDate.add(3, "day");
 
-// Function to render checkout items
 function renderCheckoutCart() {
-  const cart = JSON.parse(localStorage.getItem("cart") || []);
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
   let checkoutCard = "";
-  let viewProductBtn;
   let totalQuantity = 0;
+
+  // Track shipping cost per product (default free = 0)
+  const shippingSelections = {};
+  let subtotal = 0;
 
   cart.forEach((cartItem) => {
     const product = products.find((p) => p.id === cartItem.productId);
     if (product) {
       const quantity = cartItem.quantity;
       totalQuantity += quantity;
+      subtotal += (product.priceCents / 100) * quantity;
+
+      shippingSelections[product.id] = 0; // default free shipping
 
       quantityhandling(quantity);
 
@@ -56,7 +60,7 @@ function renderCheckoutCart() {
                 <div>
                   <input type="radio" name="${
                     product.id
-                  }" class="js-shipping-radio" value="free">
+                  }" class="js-shipping-radio" value="free" checked>
                   <span class="delivery-option-date">${FreeShippingdate.format(
                     "dddd, MMM D YYYY"
                   )}</span><br>
@@ -67,7 +71,7 @@ function renderCheckoutCart() {
                     product.id
                   }" class="js-shipping-radio" value="standard">
                   <span class="delivery-option-date">${threeDayshipping.format(
-                    "dddd,MMM D YYYY"
+                    "dddd, MMM D YYYY"
                   )}</span><br>
                   $4.99 - Shipping
                 </div>
@@ -77,7 +81,7 @@ function renderCheckoutCart() {
                   }" class="js-shipping-radio" value="express">
                   <span class="delivery-option-date">${todayDate
                     .add(1, "day")
-                    .format("dddd,MMM D YYYY")}</span><br>
+                    .format("dddd, MMM D YYYY")}</span><br>
                   $9.99 - Shipping
                 </div>
               </div>
@@ -92,13 +96,61 @@ function renderCheckoutCart() {
   document.querySelector(".checkout-items").innerHTML = totalQuantity;
 
   if (cart.length === 0) {
-    viewProductBtn = document.createElement("button");
+    const viewProductBtn = document.createElement("button");
+    const a = document.createElement("a");
+    const div = document.createElement("div");
+    a.href = `../index.html`;
+    a.appendChild(viewProductBtn);
+    div.appendChild(a);
+    div.classList.add("view-product-btn-container");
     viewProductBtn.innerHTML = "View Products";
     document.querySelector(".js-card-container").innerHTML = "";
-    document.querySelector(".js-card-container").appendChild(viewProductBtn);
+    document.querySelector(".js-card-container").appendChild(div);
   }
 
-  // Delete handlers
+  // Calculate total shipping cost (sum of all products shipping * quantity)
+  function calculateShippingCost() {
+    let shippingCost = 0;
+    cart.forEach((cartItem) => {
+      const productId = cartItem.productId;
+      const quantity = cartItem.quantity;
+      const selectedShipping = shippingSelections[productId] || 0;
+      shippingCost += selectedShipping * quantity;
+    });
+    return shippingCost;
+  }
+
+  // Update order summary DOM
+  function renderOrderSummary() {
+    const shippingCost = calculateShippingCost();
+    const tax = subtotal * 0.1;
+    const totalBeforeTax = subtotal + shippingCost;
+    const total = totalBeforeTax + tax;
+
+    const orderSummarySection = document.querySelector(
+      ".order-price-calculation"
+    );
+    const summaryRows = orderSummarySection.querySelectorAll(".summary-rows");
+    const totalOrderRow = orderSummarySection.querySelector(".total-order");
+
+    summaryRows[0].children[0].textContent = `items(${totalQuantity})`;
+    summaryRows[0].children[1].textContent = `$${subtotal.toFixed(2)}`;
+
+    summaryRows[1].children[1].textContent =
+      shippingCost > 0 ? `$${shippingCost.toFixed(2)}` : "FREE";
+
+    summaryRows[2].children[1].textContent = `$${totalBeforeTax.toFixed(2)}`;
+
+    summaryRows[3].children[1].textContent = `$${tax.toFixed(2)}`;
+
+    totalOrderRow.querySelector(
+      ".total-product-price"
+    ).textContent = `$${total.toFixed(2)}`;
+  }
+
+  renderOrderSummary();
+
+  // Delete product handler
   document.querySelectorAll(".js-delete").forEach((button) => {
     button.addEventListener("click", () => {
       const productId = button.dataset.productId;
@@ -107,9 +159,23 @@ function renderCheckoutCart() {
     });
   });
 
-  // Shipping option handlers
+  // Shipping option change handler
   document.querySelectorAll(".js-shipping-radio").forEach((radio) => {
     radio.addEventListener("change", () => {
+      const productId = radio.name;
+
+      switch (radio.value) {
+        case "free":
+          shippingSelections[productId] = 0;
+          break;
+        case "standard":
+          shippingSelections[productId] = 4.99;
+          break;
+        case "express":
+          shippingSelections[productId] = 9.99;
+          break;
+      }
+
       const parent = radio.closest(".delivery-option");
       const deliveryDisplay = parent
         .closest(".card")
@@ -123,15 +189,17 @@ function renderCheckoutCart() {
         deliveryDisplay.innerHTML = `${dayjs()
           .add(3, "day")
           .format("dddd, MMM D YYYY")}`;
-      } else if (radio.value === "free") {
+      } else {
         deliveryDisplay.innerHTML = `${dayjs()
           .add(7, "day")
           .format("dddd, MMM D YYYY")}`;
       }
+
+      renderOrderSummary();
     });
   });
 
-  // Update handlers
+  // Quantity update handler
   document.querySelectorAll(".js-update").forEach((updateButton) => {
     updateButton.addEventListener("click", () => {
       const card = updateButton.closest(".card");
@@ -140,19 +208,17 @@ function renderCheckoutCart() {
       const productId = card.querySelector(".js-delete").dataset.productId;
 
       if (quantityInput.style.display === "none") {
-        // First click: show input
         quantityInput.style.display = "inline-block";
         quantitySpan.style.display = "none";
         updateButton.innerText = "Save";
       } else {
-        // Second click: save
         const newQuantity = parseInt(quantityInput.value);
         if (isNaN(newQuantity) || newQuantity < 1) {
           alert("Please enter a valid number");
           return;
         }
 
-        const cart = JSON.parse(localStorage.getItem("cart") || []);
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
         const productInCart = cart.find((item) => item.productId === productId);
         if (productInCart) {
           productInCart.quantity = newQuantity;
@@ -165,5 +231,26 @@ function renderCheckoutCart() {
   });
 }
 
-// Initial render
 renderCheckoutCart();
+// Place order button handler
+const placeOrderBtn = document.querySelector(".place-order");
+if (placeOrderBtn) {
+  placeOrderBtn.addEventListener("click", () => {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    if (cart.length === 0) {
+      alert("Your cart is empty. Add items before placing an order.");
+      return;
+    }
+
+    // Here you would typically send order data to backend API
+
+    // For now, just show confirmation, clear cart and redirect
+    alert("Thank you for your order! Your order has been placed successfully.");
+
+    localStorage.removeItem("cart"); // Clear cart
+    renderCheckoutCart(); // Re-render to update UI
+
+    // Redirect example - uncomment if you want to redirect
+    // window.location.href = "/thank-you.html";
+  });
+}
