@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../styles/header.css" />
     <link rel="stylesheet" href="../styles/pages/shop.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
@@ -14,12 +15,11 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles/footer.css" />
   </head>
   <body>
     <header class="js-header">
       <div class="name">
-        <a href="index.html">
+        <a href="../index.html">
           <h1>karimart</h1>
         </a>
         <!-- menu -->
@@ -34,74 +34,86 @@
           <li><a href="../index.html">home</a></li>
           <li><a href="shop.html">shop</a></li>
           <li><a href="about.html">about us</a></li>
-          <li><a href="./Categories.html">Categories</a></li>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
         </ul>
       </nav>
       <div class="input-container">
-        <input type="search" placeholder="search" />
+        <input type="search" placeholder="search" class="js-search-input" />
       </div>
       <!-- cart -->
-
-      <a href="checkout.html">
-        <div class="cart">
-          <span>cart</span>
-          <div class="cart-icon">
-            <img
-              src="../images-folder/shopping_cart_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"
-              alt=""
-            />
+      <div class="cart">
+        <a href="checkout.html">
+          <div class="cart">
+            <span>cart</span>
+            <div class="cart-icon">
+              <img
+                src="../images-folder/shopping_cart_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"
+                alt=""
+              />
+            </div>
+            <div class="order-tracker">0</div>
           </div>
-          <div class="order-tracker">0</div>
-        </div>
-      </a>
+        </a>
+      </div>
     </header>
     <div class="card-container"></div>
+    <div
+      class="no-products-message"
+      style="
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+        font-weight: bold;
+        color: #d9534f;
+      "
+    >
+      No products found.
+    </div>
 
     <!-- footer -->
     <footer>
-      <div class="footer-container">
-        <!-- karimart -->
-        <div class="karimart">
-          <h2>karimart</h2>
-          <p>Best products at your doorstep.</p>
-        </div>
-        <!-- ouick links -->
-        <div class="Quick-Links links">
-          <ul>
-            <li><a href="">home</a></li>
-            <li><a href="">shop</a></li>
-            <li><a href="">about us</a></li>
-            <li><a href="">contact us </a></li>
-            <li><a href="">Help center</a></li>
-          </ul>
-        </div>
-        <!-- customer support -->
-        <div class="customer-support links">
-          <ul>
-            <li><a href="">return and exchanges</a></li>
-            <li><a href="">shipping information</a></li>
-            <li><a href="">track order</a></li>
-            <li><a href="">Terms & Conditions</a></li>
-            <li><a href="">privacy policy</a></li>
-          </ul>
+      <div class="inner-footer">
+        <div class="footer-container">
+          <!-- karimart -->
+          <div class="karimart">
+            <h2><a href="index.html">Karimart</a></h2>
+            <p>Best products at your doorstep.</p>
+          </div>
+          <!-- ouick links -->
+          <div class="Quick-Links links">
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="./shop.html">Shop</a></li>
+              <li><a href="./about.html">About us</a></li>
+              <li><a href="../index.html#contact">Contact us </a></li>
+              <li><a href="">Help center</a></li>
+            </ul>
+          </div>
+          <!-- customer support -->
+          <div class="customer-support links">
+            <ul>
+              <li><a href="">Return and Exchanges</a></li>
+              <li><a href="">Shipping Information</a></li>
+              <li><a href="">Track order</a></li>
+              <li><a href="">Terms & Conditions</a></li>
+              <li><a href="">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+          <!-- social media -->
+          <div class="social-media">
+            <img src="../images-folder/instragram.png" alt="instra" />
+            <img src="../images-folder/twitter.png" alt="twitter" />
+            <img src="../images-folder/facebook1.png" alt="face" />
+            <img src="../images-folder/linkedin.png" alt="what" />
+          </div>
         </div>
 
-        <!-- social media -->
-        <div class="social-media">
-          <img src="" alt="instra" />
-          <img src="" alt="face" />
-          <img src="" alt="what" />
-          <img src="" alt="twitter" />
-        </div>
-        <!-- feebback input -->
-        <div class="feedback-container">
-          <input type="text" placeholder="feedback" />
-          <button>sent</button>
-        </div>
+        <div class="copyright">© 2025 Karimart. All rights reserved.</div>
       </div>
-
-      <div class="copyright">© 2025 Karimart. All rights reserved.</div>
     </footer>
     <script src="../index.js" type="module"></script>
+    <script src="../scripts//utils/header.js"></script>
   </body>
 </html>

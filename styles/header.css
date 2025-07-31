@@ -1,177 +1,166 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 
 header {
   width: 100%;
+  background-color: #1a1a1a;
+  padding: 14px 24px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  background-color: black;
-  color: white;
-  padding: 10px 5px;
+  justify-content: space-between;
+  flex-wrap: wrap;
   position: sticky;
   top: 0;
   z-index: 999;
+  gap: 12px;
+  transition: all 0.3s ease;
 }
+
 header a {
   color: white;
   text-decoration: none;
 }
+
 .name {
   display: flex;
-  justify-content: space-evenly;
-  padding: 5px;
-  transition: all 0.3s;
-  height: 50px;
-  min-width: 100px;
-}
-.name:hover {
-  border: 1px solid white;
-}
-/* nav bar */
-nav ul {
-  display: flex;
+  align-items: center;
   gap: 10px;
 }
-nav ul li {
-  list-style: none;
+
+.name h1 {
+  font-size: 1.5rem;
+  color: white;
 }
+
+.menu {
+  display: none;
+}
+
+.menu button {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+
+  justify-content: center;
+}
+
+nav ul {
+  display: flex;
+  gap: 14px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
 nav ul li a {
-  text-decoration: none;
   color: white;
   font-size: 1rem;
-  display: block;
-  padding: 5px;
-  transition: all 0.3s;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
 }
-nav a:hover {
+
+nav ul li a:hover {
   background-color: rgb(108, 108, 108);
-  border-radius: 8px;
 }
+
+nav ul li a.active {
+  background-color: white;
+  color: black;
+}
+
 .input-container {
-  min-width: 200px;
-  width: 400px;
+  max-width: 580px;
+  flex: 1;
+  display: flex;
 }
+
 .input-container input {
   width: 100%;
-  padding: 10px 5px;
-  outline: none;
+  padding: 8px 12px;
   font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+}
+
+.input-container input:hover {
+  box-shadow: 1px 3px 8px white;
 }
 
 .cart {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px;
-  height: 40px;
-  min-width: 100px;
-  transition: all 0.3s;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
+
 .cart:hover {
   border: 1px solid white;
 }
-.cart a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-}
-/* menu */
-.menu {
-  display: none;
-}
-.menu button {
-  background: transparent;
+
+.cart span {
+  font-size: 1rem;
   color: white;
 }
-@media screen and (max-width: 490px) {
-  .menu {
-    display: block;
-  }
-  .name {
-    width: 100%;
-    align-items: center;
-  }
-  .name:hover {
-    border: none;
-  }
-  /* nav hidden */
-  header nav,
-  .input-container,
-  .cart {
-    display: none;
-  }
-  nav.active,
-  .input-container.active,
-  .cart.active {
-    display: block;
-  }
+
+.cart-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.order-tracker {
+  background-color: white;
+  color: black;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+}
+
+/* === Responsive === */
+@media screen and (max-width: 1024px) {
   header {
     flex-direction: column;
+    align-items: flex-start;
   }
-  .input-container.active {
-    width: 100%;
-    padding: 5px;
-  }
-  .cart.active {
-    display: flex;
-    gap: 10px;
-  }
-  header.active {
-    height: 100vh;
-  }
-  nav.active ul {
-    display: flex;
-    flex-direction: column;
-  }
-}
-@media screen and (min-width: 500px) and (max-width: 790px) {
+
   .menu {
     display: block;
   }
-  .name {
-    width: 100%;
-    align-items: center;
-  }
-  .name:hover {
-    border: none;
-  }
-  /* nav hidden */
-  .cart {
-    display: none;
-  }
-  header nav {
-    display: none;
-  }
+
+  nav,
   .input-container {
     display: none;
+    width: 100%;
   }
 
   nav.active,
   .input-container.active {
-    display: block;
-  }
-  header {
-    justify-content: start;
-    align-items: start;
-    flex-direction: column;
-  }
-  .input-container.active {
-    width: 100%;
-    padding: 5px;
-  }
-  .cart.active {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
   }
 
-  nav.active ul {
-    display: flex;
-    justify-content: start;
+  nav ul {
     flex-direction: column;
+    gap: 6px;
+  }
+
+  .cart {
+    justify-content: flex-start;
+    margin-top: 10px;
   }
 }

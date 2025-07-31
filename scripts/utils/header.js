@@ -1,20 +1,29 @@
 // menu toggle
+// Menu toggle
 document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.querySelector(".menubtn");
-  const jsIcon = menuBtn.querySelector(".js-icon");
+  const icon = menuBtn.querySelector(".js-icon");
+
+  const nav = document.querySelector("nav");
+  const inputContainer = document.querySelector(".input-container");
 
   menuBtn.addEventListener("click", () => {
-    let nav = document.querySelector(".nav");
-    let inputContainer = document.querySelector(".input-container");
-    let cart = document.querySelector(".cart");
-    let header = document.querySelector(".js-header");
+    const isActive = nav.classList.toggle("active");
 
-    header.classList.toggle("active");
-    nav.classList.toggle("active");
-    inputContainer.classList.toggle("active");
-    cart.classList.toggle("active");
+    inputContainer.classList.toggle("active", isActive);
 
-    // Toggle between "menu" and "close"
-    jsIcon.textContent = nav.classList.contains("active") ? "close" : "menu";
+    icon.textContent = isActive ? "close" : "menu";
   });
 });
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const links = document.querySelectorAll("nav ul li a");
+
+//   links.forEach((a) => {
+//     a.addEventListener("click", (e) => {
+//       e.preventDefault();
+//       links.forEach((ael) => ael.classList.remove("active"));
+//       a.classList.add("active");
+//     });
+//   });
+// });

@@ -4,9 +4,19 @@ footer {
   color: white;
   padding: 10px;
 }
+footer a {
+  text-decoration: none;
+  color: white;
+}
+.inner-footer {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .footer-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   place-content: center;
   gap: 20px;
 }
@@ -25,28 +35,22 @@ footer {
 }
 .links ul li a {
   text-decoration: none;
+  padding: 5px;
+  display: block;
   color: white;
 }
-.feedback-container {
+.links ul li a:hover {
+  border-bottom: 1px solid white;
+}
+.social-media {
   display: flex;
-  height: 40px;
+  gap: 10px;
 }
-.feedback-container input {
-  padding: 10px;
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.3s;
+.social-media img {
+  width: 30px;
+  height: 30px;
 }
-.feedback-container button {
-  background-color: rgb(110, 0, 0);
-  color: white;
-  padding: 0 8px;
-  border: none;
-}
-.feedback-container input:hover,
-input:focus {
-  box-shadow: 1px 3px 5px goldenrod;
-}
+
 .copyright {
   display: flex;
   justify-content: center;

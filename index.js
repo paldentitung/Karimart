@@ -5,11 +5,12 @@ import { quantityhandling } from "./scripts/utils/QuantityHandleing.js";
 const cardContainer = document.querySelector(".card-container");
 const orderTracker = document.querySelector(".order-tracker");
 const searchInput = document.querySelector(".js-search-input");
+const noProductsMessage = document.querySelector(".no-products-message"); // Add this div in your HTML
 
 // Utility: Renders a full product card
 function createProductCard(product) {
   return `
-    <div class="card">
+    <div class="card" style="position: relative;">
       <div class="card-image">
         <img src="${product.image}" alt="${product.name}" />
       </div>
@@ -27,6 +28,7 @@ function createProductCard(product) {
         <div class="quantity-container">
           <input type="number" min="1" max="10" value="1" class="js-quantity" />
         </div>
+        <div class="added-to-cart-message">Added to cart</div>
         <div class="add-to-cart-container">
           <button class="add-to-cart js-add-to-cart-btn" data-product-id="${
             product.id
@@ -39,10 +41,16 @@ function createProductCard(product) {
   `;
 }
 
-// Render and attach listeners
+// Render and attach listeners, show no products message if empty
 function renderProducts(productList) {
-  cardContainer.innerHTML = productList.map(createProductCard).join("");
-  attachAddToCartListeners();
+  if (productList.length === 0) {
+    cardContainer.innerHTML = "";
+    noProductsMessage.style.display = "block";
+  } else {
+    noProductsMessage.style.display = "none";
+    cardContainer.innerHTML = productList.map(createProductCard).join("");
+    attachAddToCartListeners();
+  }
 }
 
 // Add event listeners to Add-to-Cart buttons
@@ -61,6 +69,16 @@ function attachAddToCartListeners() {
       AddToCart(productId, quantity);
       quantityhandling(quantity);
       updateOrderCountUI();
+
+      // Show "Added to cart" message
+      const productContainer = btn.closest(".card");
+      const message = productContainer.querySelector(".added-to-cart-message");
+      if (message) {
+        message.classList.add("active");
+        setTimeout(() => {
+          message.classList.remove("active");
+        }, 2000);
+      }
     });
   });
 }
@@ -83,24 +101,4 @@ searchInput.addEventListener("input", () => {
     product.name.toLowerCase().includes(searchTerm)
   );
   renderProducts(filtered);
-});
-
-// Menu toggle
-document.addEventListener("DOMContentLoaded", () => {
-  const menuBtn = document.querySelector(".menubtn");
-  const jsIcon = menuBtn.querySelector(".js-icon");
-
-  menuBtn.addEventListener("click", () => {
-    const nav = document.querySelector(".nav");
-    const inputContainer = document.querySelector(".input-container");
-    const cart = document.querySelector(".cart");
-    const header = document.querySelector(".js-header");
-
-    header.classList.toggle("active");
-    nav.classList.toggle("active");
-    inputContainer.classList.toggle("active");
-    cart.classList.toggle("active");
-
-    jsIcon.textContent = nav.classList.contains("active") ? "close" : "menu";
-  });
 });
