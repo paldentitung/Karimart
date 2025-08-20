@@ -102,3 +102,4 @@ searchInput.addEventListener("input", () => {
   );
   renderProducts(filtered);
 });
+document.title = "Karimart";
