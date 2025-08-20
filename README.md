@@ -72,36 +72,8 @@ Edit
 
 ---
 
-## 📸 Screenshots
-
-### 🏠 Homepage
-
-![Homepage Screenshot](images-folder/homepage.png)
-
-### 🛒 Cart
-
-![Cart Screenshot](images-folder/cart.png)
-
-### 📧 Contact Section
-
-![Contact Screenshot](images-folder/contact.png)
-
----
-
-## ⚙️ Setup & Usage
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/Karimart.git
-   Open index.html in your browser.
-   ```
-
-Customize index.js to add more product data or cart functionality.
-
 🔮 Future Improvements
 ✅ Add filtering & sorting options for products
-
-✅ Implement localStorage for cart persistence
 
 ✅ Add form validation & backend integration
 
@@ -109,10 +81,7 @@ Customize index.js to add more product data or cart functionality.
 
 👨‍💻 Author
 Developed by Palden Dorje Titung
-📧 supportkarimart@gmail.com
-🌐 Portfolio Website
-🔗 LinkedIn
-🐙 GitHub
+paldendorjetitung@gmail.com
 
 📜 License
 This project is licensed under the MIT License – feel free to use and modify it.
@@ -126,3 +95,8 @@ Edit
 👉 Do you want me to also **add badges** (like GitHub stars, forks, Netlify deploy, etc.) at the top of the README to make it look more professional?
 
 Ask ChatGPT
+
+---
+
+> Some parts of this project were assisted by AI tools for faster development.  
+> All logic, customization, and implementation decisions are my own.
